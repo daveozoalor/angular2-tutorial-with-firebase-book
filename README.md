@@ -52,47 +52,6 @@ A BASIC understanding of the following will suffice:
 * Arrow Functions
 * Promises
 
-##Table of Contents
- * [HTML](https://github.com/cassidoo/HTML-CSS-Tutorial#html-time-lets-go)
-	* Editors
-	* Tag Structure
-	* Text Structure
-	* Links
-	* Other tags
-		* Images
-		* Line Breaks
-		* Tables
-	* Making Things Gorgeous The Wrong Way
-		* Colors
-		* Width and Height
-		* Borders
-		* Text Styles
-	* The `<head>` tag
-	* Putting it all together so far
- * [CSS](https://github.com/cassidoo/HTML-CSS-Tutorial#css-is-magical-and-now-youre-gonna-learn-it)
-	* Classes and IDs and other Segregation
-		* Classes
-		* IDs
-		* Other Segregation
-			* The `<span>` tag
-			* The `<div>` tag
-				* Background color
-				* Floating
-				* Positioning
-				* Margins and Padding
-				* Z-Index
-	* The `<link>` Tag, Comments, and other Developer Joys
-		* The `<link>` tag
-		* Commenting
-			* HTML Comments
-			* CSS Comments
-		* Other Developer Joys
-			* Forms
-			* HTML5 and CSS3
-			* How To Meet Ladies/Laddies (Get it? HTML Jokes are the best...)        
- * [Final Project!](https://github.com/cassidoo/HTML-CSS-Tutorial#final-project)
- * And now, the end is near
-
 ###Editors
 
 The first thing you'll need is an environment to write your code. There are many Integrated Developmemt Environments (IDE) you can use. However, the below are the ones I use.  
@@ -127,10 +86,11 @@ VAR in ES5 javascript, variables are declared with the `var` keyword. The proble
 
 
 LET in Typescript,  in Typescript, variables are declared with the `let` keyword, forcing them to stay available only within the scope they are defined in. This prevents that unnecessary overflow, and is perfect for functions and closures. Let's look at the above function once again using let.
-        for (let j = 0; j <= 1; j++){
+      ```  for (let j = 0; j <= 1; j++){
 		//j is available here
 	}
 	// J is not available here
+       ```
 
 Nice!
 
