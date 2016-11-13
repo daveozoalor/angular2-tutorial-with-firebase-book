@@ -93,37 +93,51 @@ A BASIC understanding of the following will suffice:
  * [Final Project!](https://github.com/cassidoo/HTML-CSS-Tutorial#final-project)
  * And now, the end is near
 
-##HTML Time. Let's Go.
-
 ###Editors
 
-So the first thing you'll need is an editor to edit your jazz.  There's tons of options out there.
+The first thing you'll need is an environment to write your code. There are many Integrated Developmemt Environments (IDE) you can use. However, the below are the ones I use.  
 
- * Notepad (that's right, the stupid thing that comes on your PC) - This is about as basic as you can get.  It's totally okay if you want to use this, but I recommend one of the editors below just so you can see code highlighting (which will help you out later on).  But, if you want to be a purist, this'll work just fine.
- * [Aptana Studio 3](http://aptana.com/) - This is what I typically use.  It's fairly easy to navigate, you create projects in it and it supports standard web projects, PHP, and Ruby.  If you're a beginner that probably means nothing to you.  Anyway, a decent choice.
- * [Sublime Text 2](http://www.sublimetext.com/2) - This is a pretty popular option, and for good reason.  Very clean interface.  Once you can navigate it (learning curve isn't that big), it's pretty dreamy.  Like your face.
- * [Notepad++](http://notepad-plus-plus.org/) - This is just one step up from Notepad.  But it's pretty dece.  Code highlighting is in it, and nothing else too fancy, which is what I like about it.
- * [IDEcoder](http://icecoder.net/) - this is an in-browser code editor, which lets you code directly within the web browser, online or offline, it means you only need one program (your browser) to develop websites, which is cool
+ * Your current IDE. If you have ever written any HTML code then you can keep using that IDE you used to write the code.
+ * [Notepad++](https://notepad-plus-plus.org/download/v7.2.html) - This is lightweight, simple and will get the job done. 
+ * [Sublime Text ](https://www.sublimetext.com/download) - Really superb, lightweight and smart too.
+ * [Aptana Studio 3](http://aptana.com/) 
+ * [Atom.io](https://atom.io/) - This is my new found love, it has really powerful features to make your code easy. I combine it with codelobster, link below.
+ * [CodeLobster](http://www.codelobster.com/download.html) - I really like this code editor when ever I am write html, css and javascript codes because of its amazing syntax highlighting and code folding that comes as default settings.
+You just need one of the above listed IDEs. 
 
-There's a bunch of others [listed here](http://en.wikipedia.org/wiki/List_of_HTML_editors), I just listed the ones I've used and liked!
+There are many others [listed here](http://en.wikipedia.org/wiki/List_of_HTML_editors), you can check them out.
 
-###HTML Tag Structure
+### ES6/Typescript
+Typescript is a new powerful programming language built and maintained by Microsoft, it is a superset of javascript and comes with very powerful features such as static typing and class-based object-oriented programming. Google chose to build Angular2 on Typescript instead of its other alternatives such as babel, atScript and Dart. If you visit Angular2's official documentation section you can Angular2 documentation for javascript and [Dart](https://angular.io/docs/dart/latest/index.html) incase for some reason you wish to go with those.
 
-Here is a barebones HTML page, about as simple as you can get.  You can open it up in the **1 - Structure** folder in the file part1.html.  If you were to open the file in your favorite browser (which you can do, go ahead), you'll see a plain webpage with the title "My Website" and the words, "Hello, World!" written on the page.
+ES6 is the next version of JavaScript that was just recently approved. It comes with a ton of new ways to write JS. However, its downside is that it has not been fully implemented by many browsers. ES7 is also in the pipeline. 
+Most browsers only understand javascript upto ES5, which is the normal javascript most people code. When building angular2 applications with typescript (ES6), your browser still needs to have the code compiled to ES5 javascript before it can understand it. There are two main transpilers that do this job:
+* Traceur - Owned by Google
+* Babeljs - Babel is more popular 
 
-	<!doctype html>
-	<html>
-		<head>
-			<title>
-				My Website
-			</title>
-		</head>
-		<body>
-			Hello, World!	
-		</body>
-	</html>
+We are taking time to explain most of these terminologies here in the beginning so that when we start writing actual code, it will be less boring because we won't have much explanations to make. We'll go through a quick typescript tutorial just to familiarize you with the code we'll be writing for the rest of this tutorial.
 
-So, what are we looking at here?
+### Variable Declaration in Typescript
+VAR in ES5 javascript, variables are declared with the `var` keyword. The problem is that this keyword does not properly scope the variables. A good example is when you declare a variable in a loop you are using. The variable may sometimes still be available after the loop thereby pottentially messing up your whole code. Below is an example:
+    
+	for (var j = 0; j <= 1; j++){
+		//j is available here
+	}
+	//unfortunately, j is also available here
+
+
+LET in Typescript,  in Typescript, variables are declared with the `let` keyword, forcing them to stay available only within the scope they are defined in. This prevents that unnecessary overflow, and is perfect for functions and closures. Let's look at the above function once again using let.
+        for (let j = 0; j <= 1; j++){
+		//j is available here
+	}
+	// J is not available here
+
+Nice!
+
+
+
+
+
 HTML, short for *HyperText Markup Language*, consists of these things called tags, which are words written between `<` and `>` characters, like `<sometag>`.  All tags (with just a few exceptions that we'll talk about later) have a matching closing tag, which has the same name as the opening tag, except that it contains `/` after the first `<`, like `</sometag>`. 
 
 For example, `<html>` is one tag and the closing tag for it is `</html>`, same with `<head>` and `</head>` and `<body>` and `</body>`, and so on.  You get it.
