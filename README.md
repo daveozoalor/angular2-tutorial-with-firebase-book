@@ -16,21 +16,41 @@ And I want to teach you now.
 Because you're good looking.
 And because it's useful.
 
-###What
+##What is AngularJs
+Angularjs is an opensource javascript framework for build mobile and web applications using HTML and Javascript. Angularjs is managed by Google. Its widly rated as the most popular javascript framework for building mobile and web applications.
 
-In this tutorial, we'll start from the very beginning.  You don't need to know anything about HTML and CSS or anything about code to start.  I'll include some tutorial files for you to play with and check out.
+##What is Angular2
+Angular2 is the second and latest version angularjs recently released by Google. Its much easier to learn and comes with many powerful features such as effective data management, HTTP services, form handling, fast template rendering and every other tool you need to build complex frontend web applications. You can also fuse any backend technologies you are good with into angular2 without any hassles such as firebase,couchdb, pouchdb, mongodb, nodejs and so on.  
+Angular2 was built with mobile devices first in mind which means it takes a mobile first approach.
 
-###When
+##Audience
+This book is written for novices and proffessionals who wish to learn how to build fast and scalable frontend applications for mobile and the web. This book will take your knowledge of Angular2 from basics to proffessional. Suitable examples will be used to describe aspects of angular2.
 
-Now.  Or whenever.  I'm not planning on taking this down anytime soon.  But you are only limited by your own schedule.  Or set free by it.  Whatever.
+##Prerequisites
+A BASIC understanding of the following will suffice:
+* 1. HTML
+* 2. CSS
+* 3. Javascript .Angular2 uses a special kind of javascript called Typescript, that's what we will be treating first in this book so you do not need to know a lot of javascript to learn angular2. 
+* Knowledge of Angular 1 is NOT required. You can just jump right in and start learning how to build apps with angular2.
 
-###Where
 
-On a computer.  Here.
-
-###Why
-
-Because this stuff is important.  Whether you're a business person formatting your emails, an aspiring web designer wanting to get your feet wet, or just someone who is interested and hasn't tried any sort of coding, scripting, or programming before, **HTML and CSS are an essential part** of your learning curve.
+##Table of conents
+* Editors
+* Components
+* Inputs
+* Outputs
+* Lifecycle
+* Templates
+* Events
+* Forms
+* ViewChild
+* ES6/Typescript
+* Wat?
+* Variables
+* Classes
+* Template Strings
+* Arrow Functions
+* Promises
 
 ##Table of Contents
  * [HTML](https://github.com/cassidoo/HTML-CSS-Tutorial#html-time-lets-go)
