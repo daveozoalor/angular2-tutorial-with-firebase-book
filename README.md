@@ -86,10 +86,12 @@ VAR in ES5 javascript, variables are declared with the `var` keyword. The proble
 
 
 LET in Typescript,  in Typescript, variables are declared with the `let` keyword, forcing them to stay available only within the scope they are defined in. This prevents that unnecessary overflow, and is perfect for functions and closures. Let's look at the above function once again using let.
-      ```  for (let j = 0; j <= 1; j++){
+      ```  
+      for (let j = 0; j <= 1; j++){
 		//j is available here
 	}
 	// J is not available here
+	
        ```
 
 Nice!
