@@ -1,7 +1,7 @@
-# angular2-tutorial-with-firebase-book 
+# Angular2 ebook
 
-This book is currently being developed using a template for another HTML book. Its not ready yet, but in this tutorial, I'll be teaching how o 
-create an applicaion using Angular2 using several backend technologies starting with firebase. 
+This book is currently being developed. Its not ready yet, but in this book, I'll be teaching how o 
+create an applicaion using Angular2 using several backend technologies starting with firebase.  Your PR is highly welcome.
 
 
 
@@ -78,27 +78,22 @@ We are taking time to explain most of these terminologies here in the beginning 
 
 ### Variable Declaration in Typescript
 VAR in ES5 javascript, variables are declared with the `var` keyword. The problem is that this keyword does not properly scope the variables. A good example is when you declare a variable in a loop you are using. The variable may sometimes still be available after the loop thereby pottentially messing up your whole code. Below is an example:
-    
-	for (var j = 0; j <= 1; j++){
-		//j is available here
-	}
-	//unfortunately, j is also available here
-
+``` 
+for (var j = 0; j <= 1; j++){
+	//j is available here
+}
+//unfortunately, j is also available here
+```
 
 LET in Typescript,  in Typescript, variables are declared with the `let` keyword, forcing them to stay available only within the scope they are defined in. This prevents that unnecessary overflow, and is perfect for functions and closures. Let's look at the above function once again using let.
-      ```  
-      for (let j = 0; j <= 1; j++){
-		//j is available here
-	}
-	// J is not available here
-	
-       ```
+```  
+for (let j = 0; j <= 1; j++){
+	//j is available here
+}
+// J is not available here
 
+```
 Nice!
-
-
-
-
 
 HTML, short for *HyperText Markup Language*, consists of these things called tags, which are words written between `<` and `>` characters, like `<sometag>`.  All tags (with just a few exceptions that we'll talk about later) have a matching closing tag, which has the same name as the opening tag, except that it contains `/` after the first `<`, like `</sometag>`. 
 
