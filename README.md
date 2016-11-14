@@ -36,6 +36,12 @@ A BASIC understanding of the following will suffice:
 
 ##Table of conents
 * Editors
+* ES6/Typescript
+* Variable declaration
+* Classes
+* Template Strings
+* Arrow Functions
+* Promises
 * Components
 * Inputs
 * Outputs
@@ -44,13 +50,6 @@ A BASIC understanding of the following will suffice:
 * Events
 * Forms
 * ViewChild
-* ES6/Typescript
-* Wat?
-* Variables
-* Classes
-* Template Strings
-* Arrow Functions
-* Promises
 
 ###Editors
 
@@ -71,8 +70,8 @@ Typescript is a new powerful programming language built and maintained by Micros
 
 ES6 is the next version of JavaScript that was just recently approved. It comes with a ton of new ways to write JS. However, its downside is that it has not been fully implemented by many browsers. ES7 is also in the pipeline. 
 Most browsers only understand javascript upto ES5, which is the normal javascript most people code. When building angular2 applications with typescript (ES6), your browser still needs to have the code compiled to ES5 javascript before it can understand it. There are two main transpilers that do this job:
-* Traceur - Owned by Google
-* Babeljs - Babel is more popular 
+* [Traceur](https://github.com/google/traceur-compiler) - Owned by Google
+* [Babeljs](https://babeljs.io/) - Babel is more popular 
 
 We are taking time to explain most of these terminologies here in the beginning so that when we start writing actual code, it will be less boring because we won't have much explanations to make. We'll go through a quick typescript tutorial just to familiarize you with the code we'll be writing for the rest of this tutorial.
 
@@ -93,7 +92,58 @@ for (let j = 0; j <= 1; j++){
 // J is not available here
 
 ```
-Nice!
+Nice! So its adviced you use `let` whenever necessary. 
+
+### Function Types in Typescript
+In Typescript, function paramters need to be typed and are all required by default. Below is an example of a function that takes in 3 parameters `firstname` , `middlename` and `lastname`.
+
+```
+function fullname(firstname : string, middlename = "partner", lastname? : string){
+      
+      //firstname = required
+      //middlename = will resolve to 'partner' if not provided when the function is being called
+      //lastname = optional because of the '?' sign right after the parameter
+      //they all bear the type 'string'.
+
+}
+```
+* Note that, required parameters must come before the optional parameters. if we wanted firstname to be optional,we would have to exchange its position withe `middlename` since middle name has a default value. 
+
+From the above, here are valid ways to call the above function:
+```
+fullname("Dave") //correct
+fullname("Dave", "Young") // correct
+fullname("Dave", "Young" , "Money") //correct
+fullname(undefined,"Young") //correct
+fullname() //error, too few parameters
+fullname("Dave","Young", "Money", "Xing") //error, too many parameters
+```
+There are a couple of other tweaks to note in Typescript functions, but we will not cover them all here since this is not primarily a typescript function.
+
+### Classes in Typescript
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 HTML, short for *HyperText Markup Language*, consists of these things called tags, which are words written between `<` and `>` characters, like `<sometag>`.  All tags (with just a few exceptions that we'll talk about later) have a matching closing tag, which has the same name as the opening tag, except that it contains `/` after the first `<`, like `</sometag>`. 
 
