@@ -147,11 +147,32 @@ let drive = new Drive("Toyota");
 
 As you can see above, we have a class named `Drive` with 3 members. We refer to each of the members using the `this` keyword. `this` denotes that its a member access.
 
+In the example above, you may notice that we have accessed each member freely without using either the public, private or modifier. That is because in Typescript it is not required unlike in some languages such as C#. By default, all members in Typescript are public. Although you can still explicitly declare them as `public`. `private` or `protected`.
+
+Example of the above code with members explicitly declared as public:
+```
+class Drive{
+	public car: string;
+	
+	public constructor(carName : string){
+		this.car = carName;
+		
+		this.aboutCar();
+	}
+	
+	public aboutCar(){
+	console.log("Your car name is " + this.car);
+		return this.car; 
+	}
+
+}
+
+let drive = new Drive("Toyota");
+```
+If you mark a member as `private`, it cannot be accessed from outside of its containing class
 
 
-
-
-
+### Template Strings
 
 
 
