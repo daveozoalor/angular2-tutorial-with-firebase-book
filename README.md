@@ -122,8 +122,30 @@ There are a couple of other tweaks to note in Typescript functions, but we will 
 
 ### Classes in Typescript
 
+Typescript leverages ES6 features to give developers the ability to use object-oriented class-based approach to building reusable components rather than the traditional functions and prototype-based inheritance as the basic means of building up reusable components. 
+Let's see a quick example here:
 
+```
+class Drive{
+	car: string;
+	
+	constructor(carName : string){
+		this.car = carName;
+		
+		this.aboutCar();
+	}
+	
+	aboutCar(){
+	console.log("Your car name is " + this.car);
+		return this.car; 
+	}
 
+}
+
+let drive = new Drive("Toyota");
+```
+
+As you can see above, we have a class named `Drive` with 3 members. We refer to each of the members using the `this` keyword. `this` denotes that its a member access.
 
 
 
