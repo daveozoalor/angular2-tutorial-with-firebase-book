@@ -120,6 +120,37 @@ fullname("Dave","Young", "Money", "Xing") //error, too many parameters
 ```
 There are a couple of other tweaks to note in Typescript functions, but we will not cover them all here since this is not primarily a typescript function.
 
+###Arrow functions 
+Fat arrow functions in Typescript helps write shorter cleaner functions. Here is a comparison between a function written in javascript and the same function replicated in Typescript.
+
+```
+class Car {
+  constructor() {
+    this.carName = 'Volvo';
+    
+    	var that = this;
+	setTimeout(function() {
+	  console.log(that.name); //we used "that" to make reference to the outer "this" context
+	});
+  }
+}
+```
+Let's see this same function in Typescript:
+
+```
+//Typescript
+class Car {
+  constructor() {
+    this.carName = 'Volvo';
+    
+    setTimeout(() => {
+      // This fat arrow function binds to the current "this" context context. So this will print "Volvo"
+      console.log(this.carName);
+    });
+  }
+}
+```
+
 ### Classes in Typescript
 
 Typescript leverages ES6 features to give developers the ability to use object-oriented class-based approach to building reusable components rather than the traditional functions and prototype-based inheritance as the basic means of building up reusable components. 
@@ -193,16 +224,18 @@ var variable1 =  `I love Dave Partner\'s
 Here is another more detailed Typescript example with data binding:
 
 ```
+let eatery_name = 'Dave Delicious';
+let city_name = 'Dave Delicious';
+
 let template = `
   <div>
-    <h2>{{eatery_name}} Eatery</h2>
+    <h2>${eatery_name} Eatery</h2>
     <p>
-      The best Eatery in the whole {{city_name}} city.
+      The best Eatery in the whole ${city_name} city.
     </p>
   </div>
-  ```
 `;
-
+ ```
 
 
 
