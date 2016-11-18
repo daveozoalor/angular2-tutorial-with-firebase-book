@@ -173,13 +173,35 @@ If you mark a member as `private`, it cannot be accessed from outside of its con
 
 
 ### Template Strings
+Typescript gives you the ability to write long or multi-line inline strings which is not possible in the good old ES5 javascript without concatenation. Here is what I mean:
 
+```
+//In Javascript 
+var variable1 =  'I love Dave Partner\'s '+
+                 'blackberry phones that are'+
+		 'all good in color';
+```
+As you can see, we had to use concatenation to join each of the line in order to avoid errors. In Typescript, you'd just need to use back ticks, one at the beginning and one at the end. The back tick key is directly above the tab key on your keyboard. Here is the same code in Typescript:
 
+```
+//In Typescript 
+var variable1 =  `I love Dave Partner\'s 
+                 blackberry phones that are
+		 all good in color`;
+```
 
+Here is another more detailed Typescript example with data binding:
 
-
-
-
+```
+let template = `
+  <div>
+    <h2>{{eatery_name}} Eatery</h2>
+    <p>
+      The best Eatery in the whole {{city_name}} city.
+    </p>
+  </div>
+  ```
+`;
 
 
 
