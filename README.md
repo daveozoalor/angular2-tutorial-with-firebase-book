@@ -36,12 +36,12 @@ A BASIC understanding of the following will suffice:
 
 ##Table of conents
 * Editors
-* ES6/Typescript
-* Variable declaration
-* Classes
-* Template Strings
-* Arrow Functions
-* Promises
+	* ES6/Typescript
+	* Variable declaration
+	* Classes
+	* Template Strings
+	* Arrow Functions
+	* Promises
 * Components
 * Inputs
 * Outputs
