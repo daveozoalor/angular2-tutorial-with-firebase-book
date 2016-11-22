@@ -88,7 +88,7 @@ If you don't know how to open your command prompt, just click on your windows st
 When the window shows up, just type `npm install -g angular-cli`. If you have any errors, its probably because you have not installed nodejs or you have not restarted your system after the installation.
 
 #### Create New Angular 2 Project
-We will be using Angular-CLI to create our first angular2 project. To do that, navigate to the folder you'd like to create your angular project in and run this command on your command prompt  `ng new angular2-blog`.  
+We will be using Angular-CLI to create our first angular2 project. To do that, navigate to the folder you'd like to create your angular project in and run this command on your command prompt  `ng new angular2-blog`.  After which you navigate into the project folder by running `cd angular2-blog`.
 Note that `angular2-blog` is the name we want to give our new app. You can name yours anything. But the syntax remains `ng new <name of project`.
 In case you don't know how to navigate to the correct project folde using your command line, here is how to do it:
 open your command prompt and type `cd <path to project directory`. For me, since I want to create my project on my desktop, I'll simply type `cd C:\Users\dell\Desktop\`. Then hit enter. 
@@ -101,9 +101,16 @@ So install Typings by typing `npm install -g typings`.
 Firebase is a backend as a service that can be plugged into any application and any platform. Firebase contains a bundle of packages most apps need some of which are notification system, NoSql database, crash reports, admob, user authentication system and so on. Angular 2 just builds the frontend of your app for you, we will still need a backend to handle the above. We will be using firebase in this tutorial. Other alternatives of firebase are MongoDB database, One signal notification, couchDB and so on. As you can see it is hard to find it all in one bundle like firebase did. 
 The only real downside of Firebase is that your app cant function offline like some mobile apps may need such as game and notepad.
 We'll be needing Firebase further down the tutorial but let's just install it now.
-So open your command prompt and type `npm install -g firebase`. 
-Then lets install Typings definitin for Firebase `typings install --save firebase`. 
+
+So open your command prompt, navigate to your project folder if you are not already there and type `npm install --save firebase`. 
+This installs firebase into your project. We also need to typings for Firebase.
+
+To install Typings definition for Firebase run `typings install --save firebase` on your command prompt, be sure you are still in the project folder. 
 You can read more about Firebase  [here on npm](https://www.npmjs.com/package/firebase) and their official [Firebase documentation](https://firebase.google.com/docs/).  
+
+#### Viewing your app
+To view the app we need to spin up a server. To do that, be sure you are on your projects folder, run `ng serve`. Your server will come up and and display the url you can use to view the app on your browser. Mine is `http://localhost:4200/`. Copy it and paste in your browser then hit enter.
+
 
 ##Introduction to ES6/Typescript
 Typescript is a new powerful programming language built and maintained by Microsoft, it is a superset of javascript and comes with very powerful features such as static typing and class-based object-oriented programming. Google chose to build Angular2 on Typescript instead of its other alternatives such as babel, atScript and Dart. If you visit Angular2's official documentation section you can Angular2 documentation for javascript and [Dart](https://angular.io/docs/dart/latest/index.html) incase for some reason you wish to go with those.
