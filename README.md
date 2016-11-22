@@ -35,15 +35,16 @@ A BASIC understanding of the following will suffice:
 
 
 ##Table of conents
-* Editors
-* Installation and Setup
-	* Installation and Setup 
-		* Nodejs Installation
-		* Angular CLI Installation
-		* Atom Text Editor Installation
-	* Installation
+* Text Editors
+* Installation and Setup 
+	* Nodejs Installation
+	* Angular CLI Installation
+	* Atom Text Editor Installation
 	* Install Typings
+	* Install Firebase
+	* Install Typscript definitions for Firebase
 	* Create New Angular 2 Project
+	* Start a server
 * ES6/Typescript
 	* Variable declaration
 	* Classes
@@ -168,10 +169,10 @@ fullname("Dave","Young", "Money", "Xing") //error, too many parameters
 There are a couple of other tweaks to note in Typescript functions, but we will not cover them all here since this is not primarily a typescript function.
 
 ####Arrow functions 
-Fat arrow functions in Typescript helps write shorter cleaner functions. Here is a comparison between a function written in javascript and the same function replicated in Typescript.
+Fat arrow functions in Typescript helps write shorter cleaner functions. Here is a comparison between a function written anonymously and the same function replicated with Typescripts fat arrow.
 
 ```
-//Javascript
+//
 class Car {
   constructor() {
     this.carName = 'Volvo';
@@ -304,3 +305,4 @@ We'll be seeing lots of usage of promises as we build our Angular 2 application,
 This brings us to the end of our Typescript journey, though what we've seen above is just a summary of the main parts of Typescript we'll be using in our Angular2 application.  Let's get started with building an app in Angular 2. 
 
 
+## Angular 2 Components
