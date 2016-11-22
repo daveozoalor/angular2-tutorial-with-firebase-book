@@ -102,7 +102,8 @@ Firebase is a backend as a service that can be plugged into any application and 
 The only real downside of Firebase is that your app cant function offline like some mobile apps may need such as game and notepad.
 We'll be needing Firebase further down the tutorial but let's just install it now.
 So open your command prompt and type `npm install -g firebase`. 
-Then lets install Typings definitin for Firebase `typings install --save firebase``
+Then lets install Typings definitin for Firebase `typings install --save firebase`. 
+You can read more about Firebase  [here on npm](https://www.npmjs.com/package/firebase) and their official [Firebase documentation](https://firebase.google.com/docs/).  
 
 ##Introduction to ES6/Typescript
 Typescript is a new powerful programming language built and maintained by Microsoft, it is a superset of javascript and comes with very powerful features such as static typing and class-based object-oriented programming. Google chose to build Angular2 on Typescript instead of its other alternatives such as babel, atScript and Dart. If you visit Angular2's official documentation section you can Angular2 documentation for javascript and [Dart](https://angular.io/docs/dart/latest/index.html) incase for some reason you wish to go with those.
