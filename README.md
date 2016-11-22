@@ -36,7 +36,15 @@ A BASIC understanding of the following will suffice:
 
 ##Table of conents
 * Editors
-	* ES6/Typescript
+* Installation and Setup
+	* Installation and Setup 
+		* Nodejs Installation
+		* Angular CLI Installation
+		* Atom Text Editor Installation
+	* Installation
+	* Install Typings
+	* Create New Angular 2 Project
+* ES6/Typescript
 	* Variable declaration
 	* Classes
 	* Template Strings
@@ -51,7 +59,7 @@ A BASIC understanding of the following will suffice:
 * Forms
 * ViewChild
 
-###Editors
+###Text Editors and IDEs
 
 The first thing you'll need is an environment to write your code. There are many Integrated Developmemt Environments (IDE) you can use. However, the below are the ones I use.  
 
@@ -65,6 +73,25 @@ You just need one of the above listed IDEs.
 
 There are many others [listed here](http://en.wikipedia.org/wiki/List_of_HTML_editors), you can check them out.
 
+### Installation and setup
+In this chapter we will be going through the installation and setup of our first angular 2 project. We will be making use of a fine combination of Nodejs and Angular-CLI as an easier and more effective way to build angular 2 applications. 
+
+#### Nodejs 
+The first thing we will be installing is called Nodejs. Nodejs is a platform for building fast and scalable applications. Its built on top of Chrome's powerful runtime. 
+To install Nodejs, visit [Nodejs.org](http://nodejs.org) and download the latest stable version and install it on your system. If you want to learn more about Nodejs at a later time, feel free to take my [Nodejs tutorial](https://www.youtube.com/watch?v=JoCoXXqBCvQ&list=PLnBvgoOXZNCPEEN6BtSu6O3yf0CDA7pjb) on youtube.
+
+#### Angular-CLI
+Angular-CLI stands for Angular command line interface, its a command line interface for building angular applications using nodejs style modules. Its easier, less noisy and more automatic than just building Angular apps from scratch. Angular-CLI takes the pain of manually creating files and typing out certain default codes off yoru shoulders. 
+ 
+Once your Nodejs installation is complete, open your command prompt and type `npm install -g angular-cli`. 
+If you don't know how to open your command prompt, just click on your windows start menu and type `cmd`, or type `node` then click on the windows command prompt that will show up. 
+When the window shows up, just type `npm install -g angular-cli`. If you have any errors, its probably because you have not installed nodejs or you have not restarted your system after the installation.
+
+#### Typings 
+Typings is a package that helps you install Typescript definitions. Typings makes use of a file named typings.json that resolve to the Typings NPM, Bower, Registry, GitHub, HTTP and local files. Packages can use type definitions from various sources and different versions without conflict.
+So install Typings by typing `npm install -g typings`. 
+
+####
 ##Introduction to ES6/Typescript
 Typescript is a new powerful programming language built and maintained by Microsoft, it is a superset of javascript and comes with very powerful features such as static typing and class-based object-oriented programming. Google chose to build Angular2 on Typescript instead of its other alternatives such as babel, atScript and Dart. If you visit Angular2's official documentation section you can Angular2 documentation for javascript and [Dart](https://angular.io/docs/dart/latest/index.html) incase for some reason you wish to go with those.
 
