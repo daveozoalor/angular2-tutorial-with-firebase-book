@@ -307,3 +307,73 @@ This brings us to the end of our Typescript journey, though what we've seen abov
 
 
 ## Angular 2 Components
+A component in Angular2 is just a `.ts` file that contains a controller class that connect to its own view and contains the logic the view will display. In Angular2, everything is a component or component based. A component also connects to services NS Angular platform core libraries.  Every component has a decorator.
+
+When we created our Angular2 project above using the Angular-CLI command `ng new angualr-blog`, Angular-CLI also created a default component class for us. The component class is called `App Component`. App component is the root component of every angular2 app. 
+Every angular2 component has 4 files. Here is an example of the default app component that comes with new Angular2 files: 
+
+```
+/.git
+/e2e
+/node_modules
+/app/
+	app.component.ts - this is the file that contains the class
+	app.component.css - this contains the css for styles for the view
+	app.component.html - this contains the html for view 
+	app.component.spec.ts - contains some defintions, you wont need to touch this file
+```
+#### How to create a new component
+To create a new component, just run `ng generate component <component name>` or `ng g c <component name>` for short. Since we are creating a blog app, let's create a `posts` component. This posts component will contain the list of blog posts. We'll create more components as we move along. 
+Run `ng g c posts`. 
+This will create a new `posts` folder inside `/app` and add files to it. Our folder structure will now look like this:
+```
+/.git
+/e2e
+/node_modules
+/app/
+	posts/
+		post.component.ts
+		post.component.css
+		post.component.html
+		post.component.spec.ts
+	app.component.ts - this is the file that contains the class
+	app.component.css - this contains the css for styles for the view
+	app.component.html - this contains the html for view 
+	app.component.spec.ts - contains some defintions, you wont need to touch this file
+```
+
+Nice!
+
+Lets create more components we will be needing, run the following
+
+`ng g c posts-add`
+This will create a second `posts-add` component that we'll be using to add new posts to the blog.
+
+#### Parts of a component
+An angular 2 component `.ts` file has different parts. We'll explain it using the generated code in `posts-add.component.ts`.
+
+```
+//posts-add.component.ts
+import { Component, OnInit } from '@angular/core';
+
+//decorator
+@Component({
+  selector: 'app-posts-add',
+  templateUrl: './posts-add.component.html',
+  styleUrls: ['./posts-add.component.css']
+})
+
+//class
+export class PostsAddComponent implements OnInit {
+
+//constructor
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+```
+
+
+The main sections we will be explaining above are the `import` , `decorator`, `class` and `constructor` sections. 
