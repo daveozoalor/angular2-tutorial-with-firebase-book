@@ -252,41 +252,6 @@ let drive = new Drive("Toyota");
 If you mark a member as `private`, it cannot be accessed from outside of its containing class
 
 
-### Template Strings
-ES6 gives you the ability to write long or multi-line inline strings which is not possible in the good old ES5 javascript without concatenation. Here is what I mean:
-
-```
-//In Javascript 
-var variable1 =  'I love Dave Partner\'s '+
-                 'blackberry phones that are'+
-		 'all good in color';
-```
-As you can see, we had to use concatenation to join each of the line in order to avoid errors. In Typescript, you'd just need to use back ticks, one at the beginning and one at the end. The back tick key is directly above the tab key on your keyboard. Here is the same code in Typescript:
-
-```
-//In Typescript 
-var variable1 =  `I love Dave Partner\'s 
-                 blackberry phones that are
-		 all good in color`;
-```
-
-Here is another more detailed Typescript example with data binding:
-
-```
-let eatery_name = 'Dave Delicious';
-let city_name = 'Dave Delicious';
-
-let template = `
-  <div>
-    <h2>${eatery_name} Eatery</h2>
-    <p>
-      The best Eatery in the whole ${city_name} city.
-    </p>
-  </div>
-`;
- ```
-The way we will be using  in this app will be making use of double curly bracelates example `{{ eatery_name }}`, instead of the example we used above `${eatery_name}`. 
-
 ###Promises In Typescript
 Typescript uses the concept of promises to provide a unique way to write asynchronous functions. Here is a good example of an attempt to fetch data froom an api, print the results or print the error.
 
@@ -302,6 +267,41 @@ loadListOfCars() {
 }
 ```
 We'll be seeing lots of usage of promises as we build our Angular 2 application, its very effective.
+
+
+### Template Strings
+This is not specifically Typescript, its more of an ES6 feature but its still worth including here because Angular2 implements it. ES6 gives you the ability to write long or multi-line inline strings which is not possible in the good old ES5 javascript without concatenation. Here is what I mean:
+
+```
+//In Javascript 
+var variable1 =  'I love Dave Partner\'s '+
+                 'blackberry phones that are'+
+		 'all good in color';
+```
+As you can see, we had to use concatenation to join each of the line in order to avoid errors. In Typescript, you'd just need to use back ticks, one at the beginning and one at the end. The back tick key is directly above the tab key on your keyboard. Here is the same code in Typescript:
+
+```
+var variable1 =  `I love Dave Partner\'s 
+                 blackberry phones that are
+		 all good in color`;
+```
+
+Here is another more detailed example with data binding:
+
+```
+let eatery_name = 'Dave Delicious';
+let city_name = 'Dave Delicious';
+
+let template = `
+  <div>
+    <h2>${eatery_name} Eatery</h2>
+    <p>
+      The best Eatery in the whole ${city_name} city.
+    </p>
+  </div>
+`;
+ ```
+The way we will be using  in this app will be making use of double curly bracelates example `{{ eatery_name }}`, instead of the example we used above `${eatery_name}`.  This enables two-way data binding in Angular 2.
 
 This brings us to the end of our Typescript journey, though what we've seen above is just a summary of the main parts of Typescript we'll be using in our Angular2 application.  Let's get started with building an app in Angular 2. 
 
