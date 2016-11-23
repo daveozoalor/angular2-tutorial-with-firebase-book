@@ -253,7 +253,7 @@ If you mark a member as `private`, it cannot be accessed from outside of its con
 
 
 ### Template Strings
-Typescript gives you the ability to write long or multi-line inline strings which is not possible in the good old ES5 javascript without concatenation. Here is what I mean:
+ES6 gives you the ability to write long or multi-line inline strings which is not possible in the good old ES5 javascript without concatenation. Here is what I mean:
 
 ```
 //In Javascript 
@@ -285,6 +285,7 @@ let template = `
   </div>
 `;
  ```
+The way we will be using  in this app will be making use of double curly bracelates example `{{ eatery_name }}`, instead of the example we used above `${eatery_name}`. 
 
 ###Promises In Typescript
 Typescript uses the concept of promises to provide a unique way to write asynchronous functions. Here is a good example of an attempt to fetch data froom an api, print the results or print the error.
