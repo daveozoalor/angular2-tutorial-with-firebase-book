@@ -465,5 +465,49 @@ Home works!
 That's how to use one component into another. You can inject multiple components into others with no limitation. We'll use it as we build a blog further down the book. 
 
 
-## Custom Assets
+### Adding Custom Assets
+#### Twitter Bootstrap To Your Project
+Bootstrap is a HTML,CSS and Javascript framework for designing beautiful and responsive user interfaces in web and mobile applications. It makes sense that we use it in this project instead of writing our own custom css from scratch. 
 We'll be using [Twitter bootstrap](http://getbootstrap.com) to style our blog to make it beautiful. 
+To do this, visit http://getbootstrap.com/getting-started/ , scroll down to the `Bootstrap CDN` section and copy the 3 stylesheet and javascript links there. Then paste it anywhere inbetween the <head> </head> section of your `src/index.html` file. 
+Bootstrap also needs Jquery to function properly, so add jquery too by visiting https://code.jquery.com/ . On the page, select 'minified' version of the jquery version you want, then copy the code that pops up. I selected the minified version of Jquery version 3.x . 
+Paste the code you copied at the bottom of your `index.html` file, just before the closing `</body>` tag.
+
+Here is mine, pay attention to the comments
+
+```
+located at src/index.html
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Angular2Blog</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- I added the below -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <app-root>Loading...</app-root> <!--this inserts the contents of app.component.html into this index.html page -->
+  
+  <!--added Jquery too below -->
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  
+</body>
+</html>
+
+```
+
+Nice, we are now good to go. We can now start using bootstrap and jquery UI features.  If you do not know how to use bootstrap, you can [checkout my boostrap tutorial on youtube] (https://www.youtube.com/playlist?list=PLnBvgoOXZNCMXAQ3FTgExmqYCzkfKKYDD).
+
+#### Desinging our homepage
+You can design your homepage using your usual HTML, CSS and Javascript. Since we are now using bootstrap in the project, I'll just build it all out using boostraps styles and classes. 
