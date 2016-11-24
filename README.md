@@ -355,7 +355,9 @@ An angular 2 component `.ts` file has different parts. We'll explain it using th
 
 ```
 //posts-add.component.ts
+//import section
 import { Component, OnInit } from '@angular/core';
+
 
 //decorator
 @Component({
@@ -368,7 +370,9 @@ import { Component, OnInit } from '@angular/core';
 export class PostsAddComponent implements OnInit {
 
 //constructor
-  constructor() { }
+  constructor() {
+  	first_name = 'Dave'; //I added this
+  }
 
   ngOnInit() {
   }
@@ -376,4 +380,60 @@ export class PostsAddComponent implements OnInit {
 }
 ```
 
-The main sections we will be explaining above are the `import` , `decorator`, `class` and `constructor` sections. 
+The main sections we will be explaining above are the `import` , `decorator`, `class` and `constructor` sections.
+
+### Imports
+The `import` section is always at the top of the page, usually the first in the `.ts` component file. 
+Its the section where the component imports all the libraries, services, classes and other components it needs to build the logic for display on the `.html` view file. 
+
+#### Decorator
+The `decorator` function of the code defines the meta data for the class immediately below it. Decorators always start with `@` symbol. The decorator above defines the files where the css style and template is located, it also defines the html selector that represents this component. 
+Here is a full list of metadata properties that can be defined inside a decorator in Angular2, although we'll eventually be making use of just few key ones in this tutorial. 
+Angular2 Metadata Properties:
+inputs - list of class property names to data-bind as component inputs
+interpolation - custom interpolation markers used in this component's template
+moduleId - ES/CommonJS module id of the file in which this component is defined
+styleUrls - list of urls to stylesheets to be applied to this component's view
+styles - inline-defined styles to be applied to this component's view
+template - inline-defined template for the view
+animations - list of animations of this component
+changeDetection - change detection strategy used by this component
+encapsulation - style encapsulation strategy used by this component
+entryComponents - list of components that are dynamically inserted into the view of this component
+exportAs - name under which the component instance is exported in a template
+host - map of class property to host element bindings for events, properties and attributes
+templateUrl - url to an external file containing a template for the view
+viewProviders - list of providers available to this component and its view children  
+outputs - list of class property names that expose output events that others can subscribe to
+providers - list of providers available to this component and its children
+queries - configure queries that can be injected into the component
+selector - css selector that identifies this component in a template
+
+The `class` functions just like a normal class in Java or C#, its just a collection of objects.  The class has a constructor function that runs by default once you the class is instantiated. The class also has an `export` statement that makes sure the class can be `imported` in any other component and used, just like we saw in the `import` section description above.
+
+The  ngOnInit() function fires everytime the component is called. As you can see, `OnInit` is also imported in the importsection from `angular/core`. 
+Like so:
+`import { Component, OnInit } from '@angular/core';`
+
+
+#### Two way data binding
+Inside the constructor class we declared a variable called `first_name`and assigned the value of `Dave` to it. This variable is also accessible from the `.html` file of a component with no extra effort on your part. That's the power of angular2. 
+Let's see what's in the `posts-add.component.html` and how the variable can be used there.
+
+```
+//src/app/posts-add/posts-add.component.html
+<p>
+  posts-add works!
+</p>
+```
+The above is just a basic html, when the component is called, it should just print `post-add works!`. Lets just add the variable we declared in the component class in `posts-add.component.ts`. To do that we just need to put the variable in double curly bracelets `{{first_name}}`
+```
+//src/app/posts-add/posts-add.component.html
+<p>
+  {{first_name}} posts-add works!
+</p>
+```
+
+Since we are building a blog
+
+
