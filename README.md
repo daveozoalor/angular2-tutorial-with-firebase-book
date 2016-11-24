@@ -433,7 +433,37 @@ The above is just a basic html, when the component is called, it should just pri
   {{first_name}} posts-add works!
 </p>
 ```
+To inject the code of one `.html` file into another, you have to:
+* First: Import the component class int the `.ts` file of the new component you'd like to inject it into. Here is the syntax: 
+`import {ClassOfOldComponent} from '<path to where the .ts file is located>';`
 
-Since we are building a blog
+* Second: place the html-selector of the old component inside the html of the new component. 
+Don't worry, we'll see this in practice as we build a blog.
+
+Since we are building a blog, let's insert the contents of the `posts-add.component.html` into `app.component.html`. This is because `app.component.html` is the default component displayed when you visit your homepage. Your homepage is proabably located at `localhost:4200` when you visit on your browser.
 
 
+```
+srs/app/app.components.ts 
+import { Component } from '@angular/core';
+import {PostsAddComponent} from './posts-add/posts-add.component'; //I just added this, it just imports posts-add component class into app.component.ts to be used
+
+//the rest of this file goes here
+```
+
+Then go to the html and add `<app-posts-add> Loading</app-posts-add>`
+```
+srs/app/app.components.html
+<h1>
+Home works!
+</h1>
+
+<app-posts-add> Loading</app-posts-add>  <!--here is the selector for posts-add.component.html. The compiler will simply replace <app-posts-add> Loading </app-posts-add> with the html contents in posts-add.components.html -->
+
+```
+
+That's how to use one component into another. You can inject multiple components into others with no limitation. We'll use it as we build a blog further down the book. 
+
+
+## Custom Assets
+We'll be using [Twitter bootstrap](http://getbootstrap.com) to style our blog to make it beautiful. 
