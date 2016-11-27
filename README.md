@@ -612,3 +612,9 @@ So open `src/app/home/home.components.html` and change the code there to:
 ```
 
 That settled, run `ng serve` and view your app on your browser by visiting `localhost:4200` . You should see a beautiful but static blog. 
+
+##Ng-Content Directive
+This is a way that Angular2 makes sure that the initial content of your component's selector does not get overwritten when the component's content gets loaded. 
+Normally, if you had `<app-home>Loading... </app-home>`. The `loading...` will be replaced by whatever is located in `src/app/home/home.component.html` when it is loaded. If you dont want this replacement to happen, but wish to display both contents at the same time, you'll need to go to `src/app/home/home.component.html` and enter the tag `<ng-content> </ng-content>` at any part of the code you wish the contents of  `<app-home>Loading... </app-home>` to be displayed. 
+Its as simple as that - go to the component and tell it where to append the initial contents of its selector. 
+
