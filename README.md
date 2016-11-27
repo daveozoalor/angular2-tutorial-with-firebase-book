@@ -112,6 +112,17 @@ You can read more about Firebase  [here on npm](https://www.npmjs.com/package/fi
 #### Viewing your app
 To view the app we need to spin up a server. To do that, be sure you are on your projects folder, run `ng serve`. Your server will come up and and display the url you can use to view the app on your browser. Mine is `http://localhost:4200/`. Copy it and paste in your browser then hit enter.
 
+####Installations summary
+1.  Download and Install Nodejs from http//nodejs.org
+* Open a command prompt (cmd) on your computer by clicking on your start menu and typing (running) `cmd` then hit enter. 
+* When the cmd window opens, type `node -v` and hit enter. If it shows you a version of nodejs, then nodejs was correctly installed.
+2. Install Angular-CLI
+* In your command prompt window, run `npm install -g angular-cli`
+3. Create new Angular2 project, 
+* First navigate to any folder in your computer you want to create the project in. Mine is on my desktop. So to navigate to my desktop, I'd run `cd C:\Users\dell\Desktop\angular projects`. 
+* After which I'd run `ng new angular2-blog` to create new angular2 project I decided to name `angular2-blog`. 
+
+Other things you can install are Firebase and Typings as outlined above. 
 
 ## Introduction to ES6/Typescript
 Typescript is a new powerful programming language built and maintained by Microsoft, it is a superset of javascript and comes with very powerful features such as static typing and class-based object-oriented programming. Google chose to build Angular2 on Typescript instead of its other alternatives such as babel, atScript and Dart. Angular 2 uses TypeScript because it improves developer productivity because of its types. 
