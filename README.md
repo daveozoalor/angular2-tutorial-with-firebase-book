@@ -522,3 +522,93 @@ Nice, we are now good to go. We can now start using bootstrap and jquery UI feat
 
 #### Desinging our homepage
 You can design your homepage using your usual HTML, CSS and Javascript. Since we are now using bootstrap in the project, I'll just build it all out using boostraps styles and classes. 
+Since all all our pages will contain A top navigation bar, lets add it right under the opening `<body>` tag of `src/index.html`. I'll also add a footer. Update the file to look like this:
+
+```
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+
+          <a class="navbar-brand" href="#"> <i class="glyphicon glyphicon-list-alt"> </i> Angular2 Blog</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+  <app-root>Loading...</app-root> <!--this inserts the contents of app.component.html into this index.html page -->
+
+<!--footer section -->
+    <footer>
+          <p>&copy; 2016 Company, Inc.</p>
+    </footer>
+	
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>
+
+```
+
+The above will show a blank page with a black top navigation bar and a login form. Next, we head over to `src/app/app.component.ts` and change its content to the following code. 
+
+```
+<!-- Main jumbotron for a primary marketing message or call to action -->
+   <div class="jumbotron">
+     <div class="container">
+       <h1>Hello, world!</h1>
+       <p>Welcome to our first Angular2 blog. Please find our blog posts below.</p>
+       <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+     </div>
+   </div>
+
+<div class="container">
+  <app-home>Loading...</app-home> <!-- Notice that we are importing the contents of src/app/home/home.components.html here -->
+     <hr>
+
+   </div> <!-- /container -->
+
+```
+
+app.component is basically the root component of the application, that is to say, if you stack all the components one on top the other, the app.component will be at the top. 
+* Notice that we are importing the contents of `src/app/home/home.components.html`. 
+
+So let's head over to `src/app/home/home.components.html` and insert some code. The code we will insert will be a dummy code that will eventually list the latest blog posts when we connect this application to a database. If you have not created `home.component` you can create it by running `ng g c home` on your cmd. Or you can use the `post component` we created ealier for this purpose. We just need to list the latest posts with a short description each. 
+So open `src/app/home/home.components.html` and change the code there to: 
+
+```
+<!-- Example row of columns -->
+<div class="row">
+  <div class="col-md-4">
+    <h2>Heading</h2>
+    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+  </div>
+  <div class="col-md-4">
+    <h2>Heading</h2>
+    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+ </div>
+  <div class="col-md-4">
+    <h2>Heading</h2>
+    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+  </div>
+</div>
+```
+
+That settled, run `ng serve` and view your app on your browser by visiting `localhost:4200` . You should see a beautiful but static blog. 
