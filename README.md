@@ -716,7 +716,7 @@ Let's add some clickable links to the top navigation bar of this app. Go to `src
 ```
 <ul class="nav navbar-nav">
 <!-- we have alread specified the respective routes in app.module.ts above -->
-            <li ><a  routerLink="" routerLinkActive="activeLink" >Home</a></li>  <!
+            <li ><a  routerLink="" routerLinkActive="activeLink" >Home</a></li> 
             <li><a  routerLink="/posts-add" routerLinkActive="activeLink">New Post</a></li>
 </ul>
 ```
