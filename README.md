@@ -620,3 +620,89 @@ Here is what mine looks like:
 This is a way that Angular2 makes sure that the initial content of your component's selector does not get overwritten when the component's content gets loaded. 
 Normally, if you had `<app-home>Loading... </app-home>`. The `loading...` will be replaced by whatever is located in `src/app/home/home.component.html` when it is loaded. If you dont want this replacement to happen, but wish to display both contents at the same time, you'll need to go to `src/app/home/home.component.html` and enter the tag `<ng-content> </ng-content>` at any part of the code you wish the contents of  `<app-home>Loading... </app-home>` to be displayed. 
 Its as simple as that - go to the component and tell it where to append the initial contents of its selector. 
+
+
+##Routing and Navigation 
+Routing and Navigation in Angular2 is quite simple. You just have to import `import { RouterModule, Routes } from '@angular/router';` into `src/app/app.module.ts`. Then define your route parameters in a variable of the type `Routes`. Let's see a practical example.
+
+Update your  `src/app/app.module.ts` to the below, lookout for the comments I added.
+```
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { PostsAddComponent } from './posts-add/posts-add.component';
+
+//added
+import { RouterModule, Routes } from '@angular/router'; 
+
+//added: declare the route parameters below
+const appRoutes: Routes = [
+  { path: 'posts-add', component: PostsAddComponent },
+  { path: 'posts-view/:id', component: PostsViewComponent },
+  { path: '', component: HomeComponent },
+  { path: '**', component: PageNotFoundComponent }
+];
+
+
+//added: RouterModule.forRoot(appRoutes) in the imports:[...] section below
+@NgModule({
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    PostsAddComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+```
+* `import { RouterModule, Routes } from '@angular/router';` - This imports the needed modules for the routing to take place. 
+* `const appRoutes: Routes= [...]` - This section defines the route parameters, that is, which url redirects to which page. If you have more components you will simply add them to this array. But be sure to have created the page first. Angular-CLI wil automatically import the page into this file after you have created it, otherwise you'll get an error promoting you to import it yourself.
+* `RouterModule.forRoot(appRoutes)` - This imports the defined parameters using the RouterModule imported in the beginning. 
+
+If we wanted to send other parameters along with the url, you can use the `data` property. The route parameters will look something like this:
+
+```
+{
+    path: '/user/dave',
+    component: DaveComponent,
+    data: {
+      first_name: 'Dave',
+      middle_name: 'Partner',
+      networth: '$17b'
+    }
+  }
+  ```
+
+
+If you serve this on your browser at this point, you'll get an error. You need to complete one more step. You need to tell angularjs where to insert the contents of the new component whenever its loaded. 
+So go to your `src/app/app.components.html` and change `<app-home>Loading...</app-home>` to `<router-outlet></router-outlet>` .That all.
+
+Here is what my new  `src/app/app.components.html` looks like now:
+```
+<!-- Main jumbotron for a primary marketing message or call to action -->
+   <div class="jumbotron">
+     <div class="container">
+       <h1>Hello, world!</h1>
+       <p>Welcome to our first Angular2 blog. Please find our blog posts below.</p>
+       <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+     </div>
+   </div>
+
+<div class="container">
+  <router-outlet></router-outlet> <!-- added this -->
+     <hr>
+
+   </div> <!-- /container -->
+
+``
