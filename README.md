@@ -669,6 +669,7 @@ export class AppModule { }
 * `import { RouterModule, Routes } from '@angular/router';` - This imports the needed modules for the routing to take place. 
 * `const appRoutes: Routes= [...]` - This section defines the route parameters, that is, which url redirects to which page. If you have more components you will simply add them to this array. But be sure to have created the page first. Angular-CLI wil automatically import the page into this file after you have created it, otherwise you'll get an error promoting you to import it yourself.
 * `RouterModule.forRoot(appRoutes)` - This imports the defined parameters using the RouterModule imported in the beginning. 
+* `{ path: '**', component: PageNotFoundComponent }` -This line specifies the component that will be loaded if a route not specified is visited. This is perfect for creating 404 not found pages. Go to your command prompt and create the `page-not-found` component. Navigatge to the `.html` file of the component and type the error people will see if they visit a page that does not exist in your app.
 
 If we wanted to send other parameters along with the url, you can use the `data` property. The route parameters will look something like this:
 
@@ -705,4 +706,18 @@ Here is what my new  `src/app/app.components.html` looks like now:
 
    </div> <!-- /container -->
 
-``
+```
+To add a clickable link in Angular2, you just need to two angular2 attributes 
+* `routerLink` - Angular2 does not make use of `href`, so `routerLink` is the attribute for specifying the address to be loaded.
+* `routerLinkActive` - This is optional, its a way to specify the css selector properties to apply when the link is active.  In the example below we are going to assume that we have written a css class with the name `activeLink`. 
+
+Let's add some clickable links to the top navigation bar of this app. Go to `src/index.html`, scroll to the `<body>`, locate the line that reads `<div id="navbar" class="navbar-collapse collapse">` and add the following directly under it.
+
+```
+<ul class="nav navbar-nav">
+<!-- we have alread specified the respective routes in app.module.ts above -->
+            <li ><a  routerLink="" routerLinkActive="activeLink" >Home</a></li>  <!
+            <li><a  routerLink="/posts-add" routerLinkActive="activeLink">New Post</a></li>
+</ul>
+```
+
