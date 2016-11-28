@@ -613,6 +613,7 @@ So open `src/app/home/home.components.html` and change the code there to:
 
 That settled, run `ng serve` and view your app on your browser by visiting `localhost:4200` . You should see a beautiful but static blog.  
 Here is what mine looks like:
+
 ![image](https://cloud.githubusercontent.com/assets/1010556/20647101/8179b342-b48b-11e6-8fb9-601ebda37b5c.png)
 
 ##Ng-Content Directive
