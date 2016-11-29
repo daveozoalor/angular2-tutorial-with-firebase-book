@@ -720,4 +720,92 @@ Let's add some clickable links to the top navigation bar of this app. Go to `src
             <li><a  routerLink="/posts-add" routerLinkActive="activeLink">New Post</a></li>
 </ul>
 ```
+Note that the above `routerLink` and `routerLinkActive` won't work if used in any file that is outside of inside of `src/app/` folder. This means it won't work in `src/index.html` file where we just used it above. We will need to copy the entire top navigation bar code out of `srcc/index.html` and paste it at the beginning of `src/app/app.coomponent.html` . 
+My `srcc/index.html` now looks like this:
 
+```
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Angular2Blog</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+</head>
+<body>
+<!-- navigation code was removed from here -->
+
+  <app-root>Loading...</app-root> <!--this inserts the contents of app.component.html into this index.html page -->
+
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+```
+
+My `src/app/app.coomponent.html`now looks like this:
+
+```
+<!-- added the below navigation  -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+
+<a class="navbar-brand" href="#"> <i class="glyphicon glyphicon-list-alt"> </i> Angular2 Blog</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+      
+      <!-- Added the below two links with routerLink and routerLinkActive directives -->
+        <ul class="nav navbar-nav">
+          <li ><a  routerLink="" routerLinkActive="activeLink" >Home</a></li>
+         <li><a   routerLink="posts-add" routerLinkActive="activeLink">New Post</a></li>
+        </ul>
+	
+        <form class="navbar-form navbar-right">
+          <div class="form-group">
+            <input type="text" placeholder="Email" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="password" placeholder="Password" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-success">Sign in</button>
+        </form>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+  
+<!-- added the above ^^^  -->
+  
+  
+<!-- Main jumbotron for a primary marketing message or call to action -->
+ <div class="jumbotron">
+     <div class="container">
+       <h1>Hello, world!</h1>
+       <p>Welcome to our first Angular2 blog. Please find our blog posts below.</p>
+       <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+     </div>
+   </div>
+
+<div class="container">
+  <router-outlet></router-outlet> 
+     <hr>
+
+   </div> <!-- /container -->
+
+
+```
