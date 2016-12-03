@@ -214,7 +214,7 @@ class Car {
 
 ### Classes in Typescript
 
-Typescript leverages ES6 features to give developers the ability to use object-oriented class-based approach to building reusable components rather than the traditional functions and prototype-based inheritance as the basic means of building up reusable components. 
+Typescript leverages ES6 features to give developers the ability to use object-oriented class-based approach to building reusable components as the basic means of building up reusable components. This is as opposed to the traditional functions and prototype-based inheritance used in earlier versions of javascript. 
 Let's see a quick example here:
 
 ```
@@ -334,6 +334,7 @@ Every angular2 component has 4 files. Here is an example of the default app comp
 	|-app.component.html - this contains the html for view 
 	|-app.component.spec.ts - contains some defintions, you wont need to touch this file
 ```
+
 #### How to create a new component
 To create a new component, just run `ng generate component <component name>` or `ng g c <component name>` for short. Since we are creating a blog app, let's create a `posts` component. This posts component will contain the list of blog posts. We'll create more components as we move along. 
 Run `ng g c posts`. 
@@ -360,7 +361,9 @@ Lets create more components we will be needing, run the following
 
 `ng g c posts-add`
 This will create a second `posts-add` component that we'll be using to add new posts to the blog.
+This is what it looks like depicting it hierarchically. 
 
+![image](https://cloud.githubusercontent.com/assets/1010556/20860021/e9ee9bbc-b96e-11e6-8f80-8f064e8d99f8.png)
 #### Parts of a component
 An angular 2 component `.ts` file has different parts. We'll explain it using the generated code in `posts-add.component.ts`.
 
