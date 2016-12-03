@@ -334,7 +334,8 @@ Every angular2 component has 4 files. Here is an example of the default app comp
 	|-app.component.html - this contains the html for view 
 	|-app.component.spec.ts - contains some defintions, you wont need to touch this file
 ```
-
+Here is a typical component and how it relates to other parts of Angular2.
+![image](https://cloud.githubusercontent.com/assets/1010556/20860116/ed0ffb86-b970-11e6-920f-31ac297ef0f4.png)
 #### How to create a new component
 To create a new component, just run `ng generate component <component name>` or `ng g c <component name>` for short. Since we are creating a blog app, let's create a `posts` component. This posts component will contain the list of blog posts. We'll create more components as we move along. 
 Run `ng g c posts`. 
