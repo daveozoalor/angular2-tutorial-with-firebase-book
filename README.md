@@ -363,8 +363,9 @@ Lets create more components we will be needing, run the following
 `ng g c posts-add`
 This will create a second `posts-add` component that we'll be using to add new posts to the blog.
 This is what it looks like depicting it hierarchically. 
+![image](https://cloud.githubusercontent.com/assets/1010556/20860157/c8e3fcde-b971-11e6-8a24-79d1890e209e.png)
 
-![image](https://cloud.githubusercontent.com/assets/1010556/20860021/e9ee9bbc-b96e-11e6-8f80-8f064e8d99f8.png)
+
 #### Parts of a component
 An angular 2 component `.ts` file has different parts. We'll explain it using the generated code in `posts-add.component.ts`.
 
@@ -431,7 +432,8 @@ Like so:
 `import { Component, OnInit } from '@angular/core';`
 
 
-#### Two way data binding
+#### Data Flow (Into the View)
+Angular enables the use of a powerful feature called two-way data binding.  This simply means that data can be passed from the view to the controller and back in real-time.
 Inside the constructor class we declared a variable called `first_name`and assigned the value of `Dave` to it. This variable is also accessible from the `.html` file of a component with no extra effort on your part. That's the power of angular2. 
 Let's see what's in the `posts-add.component.html` and how the variable can be used there.
 
@@ -441,6 +443,7 @@ Let's see what's in the `posts-add.component.html` and how the variable can be u
   posts-add works!
 </p>
 ```
+####String Interpolation
 The above is just a basic html, when the component is called, it should just print `post-add works!`. Lets just add the variable we declared in the component class in `posts-add.component.ts`. To do that we just need to put the variable in double curly bracelets `{{first_name}}`
 ```
 //src/app/posts-add/posts-add.component.html
@@ -448,8 +451,82 @@ The above is just a basic html, when the component is called, it should just pri
   {{first_name}} posts-add works!
 </p>
 ```
+####Property Binding
+There is another method called `Property binding` which we will see when we start treating forms. Here is what it looks like 
+`<input [required]='expression'/>`.
+That `expression` will result to `true` or `false`. 
+Property binding can be done on 
+* HTML properties, for example the `value` property.
+`[value]="expression"`.
+* In-built Angular directives such as `[ngClass]="expression"`
+* Custom made properties such as `[whateverProperty]="expression"`
+
+Let's see a practical example which also applies to all the other types of binding discussed in this section.
+Go to `src/app/posts-add/posts-add.component.ts` and declare some variables for the form we'll use to create new posts.
+
+My `src/app/posts-add/posts-add.component.ts` now looks like this:
+```
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-posts-add',
+  templateUrl: './posts-add.component.html',
+  styleUrls: ['./posts-add.component.css']
+})
+export class PostsAddComponent implements OnInit {
+
+  postTitle = "The quick brown fox "; //added this
+  postDescription = "Jumps over lorem Ipsum fox mesit"; //added this
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+//added the below
+  addNewPost(){
+    //method to exectute when the submit button is clicked
+  }
+}
+```
+
+Go to `src/app/posts-add/posts-add.component.html` and create a HTML form using `[(ngModel)]` to bind the data declared in `src/app/posts-add/posts-add.component.ts` to the views.
+My `src/app/posts-add/posts-add.component.html` now looks like this:
+
+```
+<form >
+      <h2>Create new post</h2>
+
+      <label for="postTitle">Post Title</label>
+      <input  [(ngModel)]="postTitle" type="text" id="postTitle" class="form-control" placeholder="Title" required autofocus>
+
+      <label for="postDescription" class="sr-only">Description</label>
+      <textarea  [(ngModel)]="postDescription"  id="postDescription" class="form-control" rows="5"  placeholder="Description" required> </textarea>
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="addNewPost()">Sign in</button>
+    </form>
+
+
+```
+Take note of the  `[(ngModel)]="postDescription"` and the `[(ngModel)]="postTitle"`, the values of the properties are the same as the variable names declared in `src/app/posts-add/posts-add.component.ts`.
+The effect of the above two-way data binding is that when the user visits the posts-add page, the textbox will be automatically filled with `The quick brown fox` while the textarea will contain `Jumps over lorem Ipsum fox mesit`.
+We will see more of this in action further down the turtorial.
+
+
+####Two-way data binding
+We can use two-data binding in form elements in angular2 by assigning it to `[(ngModel)]` attribute. For instance:
+
+<input type="text" [(ngModel)]='username' />
+
+While `username` is a variable already declared in the `.ts` file.
+
+####Event Binding
+You can bind events in angular2 like so `<button (click)="expression/function" />`. This is an example of an onclick() event and what expression or function will be exectuted when it is called.
+
+
 To inject the code of one `.html` file into another, you have to:
-* First: Import the component class int the `.ts` file of the new component you'd like to inject it into. Here is the syntax: 
+* First: Import the component class into the `.ts` file of the new component you'd like to inject it into. 
+Here is the syntax: 
 `import {ClassOfOldComponent} from '<path to where the .ts file is located>';`
 
 * Second: place the html-selector of the old component inside the html of the new component. 
@@ -524,7 +601,7 @@ located at src/index.html
 
 Nice, we are now good to go. We can now start using bootstrap and jquery UI features.  If you do not know how to use bootstrap, you can [checkout my boostrap tutorial on youtube] (https://www.youtube.com/playlist?list=PLnBvgoOXZNCMXAQ3FTgExmqYCzkfKKYDD).
 
-#### Desinging our homepage
+#### Designing the homepage
 You can design your homepage using your usual HTML, CSS and Javascript. Since we are now using bootstrap in the project, I'll just build it all out using boostraps styles and classes. 
 Since all all our pages will contain A top navigation bar, lets add it right under the opening `<body>` tag of `src/index.html`. I'll also add a footer. Update the file to look like this:
 
