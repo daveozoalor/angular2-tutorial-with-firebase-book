@@ -937,3 +937,56 @@ Like so:
 <p> {{post.title }} </p>
 <p> {{post.description }} </p>
 ```
+
+
+### @Output decorator
+This does exactly what the @Input decorator does above but in the reverse direction. It enables data to be passed from a component in a lower hierarchical order (the sender) into a component that is higher in that order (the receiver). 
+![image](https://cloud.githubusercontent.com/assets/1010556/20865248/5e09f462-ba0d-11e6-8066-67635a623914.png)
+
+In this example we will pass data from `home.component` up to `app.component`. 
+To do that, we can start from the receiving component. We need to create a custom property, let's call it `onYell`, you can name it anything of course. After which we will attach it to a function that it will trigger.
+
+In the `app.component.html` , modify the `home.component` selector to add our new custom property. 
+
+```
+<app-home (onYell)="yell($event)"> </app-home>
+```
+Then we go to our `app.component.ts` and create the `yell()` function that will be triggered. 
+
+In `app.component.ts`, unnder (not inside) the constructor() method, add the following:
+
+```
+yell(receivedEvent){
+   alert("I just received a yell!); 
+}
+```
+The above function will fire when the custom event `(onYell)` is `emitted` from inside the `home.component.ts`.
+
+So let's go to `home.component.ts` and output the event
+
+```
+import { Component, OnInit, Input,Output, EventEmitter } from '@angular/core'; //import Output and EventEmitter
+.
+.
+.
+export class HomeComponent implements OnInit {
+@Output() onYell = new EventEmitter(); //add this
+
+//The below function will be triggered from home.component.html when a certain button is clicked
+fireOnYellEvent(e){ 
+   this.onYell.emit(e); 
+   }
+.
+.
+.
+```
+
+Finally, go to `home.component.html` and add a button that will trigger the whole chain reaction.
+
+```
+<button (click)="fireOnYellEvent($event)"> Click me! </button>
+```
+
+And that's it. 
+Here is what it looks like visually :
+![image](https://cloud.githubusercontent.com/assets/1010556/20865396/c20a23b2-ba10-11e6-95d9-3c39e02d5b7f.png)
