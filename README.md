@@ -890,3 +890,50 @@ My `src/app/app.coomponent.html`now looks like this:
 
 
 ```
+
+
+## Custom Property Binding
+So far, we have been passing data from the component class (`.ts` file) to and from the component view (`.html`) file. Now we are going to see how we can pass data from one component to another. There are two ways to do that - using the input or output decorator with a custom property binding.
+
+### @Input Decorator
+The input decorator is used to pass data down from a compenent positioned at a higher level into a component at a lower level, like so :
+![image](https://cloud.githubusercontent.com/assets/1010556/20863397/3f7b8b76-b9c9-11e6-9dcc-e1af2f95aea4.png)
+
+This can be useful in several scenarios one of which could be when you want to pass the list of menus from one component to the other. 
+
+So let us see how we can pass some sample data from `app.component` into `home.component`. It is done in 4 steps.
+* Declare the variables in `app.component.ts`. 
+eg. 
+ ```
+ post = { 
+        title : "Welcome to Jamrock", 
+	description : "The quick brown fox jumps over a lazy dog"
+       }    	
+ ```
+ 
+* Pass it as custom property in the selector for `home.component` located in `app.component.html` 
+Here is an example
+ ```
+ <app-home [myPost] = "post" > </app-home>
+```
+
+* Use the input decorator in `home.component.ts` to gain access to it.
+
+```
+import { Component, OnInit, Input } from '@angular/core'; //add 'Input' to the list of imports
+.
+.
+.
+export class HomeComponent implements OnInit {
+	@Input() myPost; //use it here
+.
+.
+.
+```
+
+* Finally, you can make use of it in your `home.component.html` using string interpolation
+Like so:
+```
+<p> {{post.title }} </p>
+<p> {{post.description }} </p>
+```
