@@ -989,4 +989,73 @@ Finally, go to `home.component.html` and add a button that will trigger the whol
 
 And that's it. 
 Here is what it looks like visually :
+
 ![image](https://cloud.githubusercontent.com/assets/1010556/20865396/c20a23b2-ba10-11e6-95d9-3c39e02d5b7f.png)
+
+##Life Cycle
+This session explains the lifecycle of an Angular App. Angular creates, updates and destroys directives and components as it runs there by giving them a life cycle. To tap into these key moments while our app is running we have to implement one or more of the Lifecycle Hook interfaces in the Angular core library as we will see below.
+
+### Bootstraping
+Angular 2 apps need to be bootstrapped, this is usually done in `src/app/app.module.ts` or in `src/app/app.component.ts`.
+The `AppComponent` class was created and exported in  `src/app/app.component.ts` then bootstrapped in `app.module.ts` in the line that says `bootstrap: [AppComponent]` .
+
+These are the two files you can put your application level code and configuration. Angular CLI automatically does most configurations for us in `src/app/app.module.ts`. This file basically contains configurations only. 
+The `src/app/app.component.ts`is just another regular component file sitting at the top as the root component, it's template is where the whole app component chain for your app gets created.
+
+### Lifecycle Hook interfaces
+When a component is created, its constructor is called. This is where we initialize state for our component, but if we rely on properties or data from child components, we need to wait for our child components to initialize first.
+
+To run any particular component in your application, Angular first `creates` it, then runs its constructor() method. Every component has a constructor() method by default. The constructor is where we can initialise state for our component. The problem is that if that compnent relies on data and properties from child components, we will have to wait for those child components to initialize first.
+
+To track that, we can make use of inbuilt Angular life cylcle hook interfaces. There are just a handful of them. Let's see a sample component with all the hooks.
+
+```
+import { Component, OnInit } from '@angular/core';
+
+// Directive
+@Component({
+  selector: 'shopping-cart',
+  template: '<cart-window></cart-window><cart-controls></cart-controls>',
+})
+
+// Component controller
+export class ShoppingCart implements OnInit {
+
+
+  constructor(private logger: LoggerService) {
+  	//here, write codes that will run soon as this component is loaded
+  }
+  
+  
+  ngOnInit() {
+    // here, write codes that will run soon as the child components are loaded
+    // In this case <cart-window> and <cart-controls>
+  }
+  
+  ngOnDestroy() {
+    // write code that runs when component is destroyed
+  }
+  
+  ngDoCheck() {
+    // Custom change detection
+  }
+  ngOnChanges(changes) {
+    // Called right after the bindings have been checked but only
+    // if one of the bindings has changed.
+    
+  }
+  ngAfterContentInit() {
+    // write code that runs when component content has been initialized
+  }
+  ngAfterContentChecked() {
+    // write code that runs when component content has been Checked
+  }
+  ngAfterViewInit() {
+    // write code that runs when component views are initialized
+  }
+  ngAfterViewChecked() {
+    // write code that runs when component views have been checked
+  }
+}
+
+```
