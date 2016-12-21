@@ -1080,18 +1080,31 @@ export class HeroBirthdayComponent {
 
 In our view we can transformm the value of `firstName` to upper case by using a pipe ` | ` like so:
 First of all, let us display it without any pipes:
-`<div> {{fullName}} </div>`. The output would be `Dave Partner`.
+```
+<div> {{fullName}} </div>
+```
+The output would be `Dave Partner`.
 
-`<div> {{fullName | uppercase}} </div>`. The output would be `DAVE PARTNER`.
+```
+<div> {{fullName | uppercase}} </div>
+```
+The output would be `DAVE PARTNER`.
 
 We can also slice the first letter of the `firstName` off like so:
-`<div> {{fullName | slice : 1}} </div>`. The output would be `ave Partner`.
+```
+<div> {{fullName | slice : 1}} </div>
+```
+The output would be `ave Partner`.
 
 Let us slice the first letter, then go forward and slice off whatever is left after the 4th letter:
-`<div> {{fullName | slice : 1 : 4}} </div>`.
+```
+<div> {{fullName | slice : 1 : 4}} </div>
+```.
 
 We can chain multiple pipes together  too by just including ` | ` before each new pipe:
-`<div> {{fullName | slice : 1 : 4 | uppercase }} </div>`.
+```
+<div> {{fullName | slice : 1 : 4 | uppercase }} </div>
+```
 
 That's it, pipes are really very easy to use, you can discover more pipes on Angular's official documentation.
 
