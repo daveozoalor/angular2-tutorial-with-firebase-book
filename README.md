@@ -1097,13 +1097,17 @@ We can also slice the first letter of the `firstName` off like so:
 The output would be `ave Partner`.
 
 Let us slice the first letter, then go forward and slice off whatever is left after the 4th letter:
+
 ```
 <div> {{fullName | slice : 1 : 4}} </div>
-```.
 
+```.
+The output would be `ave P`.
 We can chain multiple pipes together  too by just including ` | ` before each new pipe:
+
 ```
 <div> {{fullName | slice : 1 : 4 | uppercase }} </div>
+
 ```
 
 That's it, pipes are really very easy to use, you can discover more pipes on Angular's official documentation.
