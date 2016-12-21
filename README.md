@@ -1060,5 +1060,40 @@ export class ShoppingCart implements OnInit {
 
 ```
 
+##Pipes
+Angular pipes take data as input then transform them to the desired and more user friendly output. To put it in simple terms, Angular pipes are basically string manipulation. It is used in the view to determine how the user eventually sees a piece text/data.
+For instance, you may wish to transform the casing of the username you received from the database from something like `dave partner`, to `Dave Partner`. 
+Pipes can be used to shorten texts, transform dates, search/filter a list and so on. Angular has some standard inbuilt pipes, but you can create yours if you want. We'll give an example or two here. You can read the rest on [Angular's official documentation](https://angular.io/docs/ts/latest/guide/pipes.html)
+
+Let us assume that we have a variable set in our controller like so:
+```
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'hero-birthday',
+  template: `<p>The hero's birthday is {{ birthday | date }}</p>`
+})
+export class HeroBirthdayComponent {
+  fullName = "Dave Partner";
+}
+```
+
+In our view we can transformm the value of `firstName` to upper case by using a pipe ` | ` like so:
+First of all, let us display it without any pipes:
+`<div> {{fullName}} </div>`. The output would be `Dave Partner`.
+
+`<div> {{fullName | uppercase}} </div>`. The output would be `DAVE PARTNER`.
+
+We can also slice the first letter of the `firstName` off like so:
+`<div> {{fullName | slice : 1}} </div>`. The output would be `ave Partner`.
+
+Let us slice the first letter, then go forward and slice off whatever is left after the 4th letter:
+`<div> {{fullName | slice : 1 : 4}} </div>`.
+
+We can chain multiple pipes together  too by just including ` | ` before each new pipe:
+`<div> {{fullName | slice : 1 : 4 | uppercase }} </div>`.
+
+That's it, pipes are really very easy to use, you can discover more pipes on Angular's official documentation.
+
 
 ##Services 
