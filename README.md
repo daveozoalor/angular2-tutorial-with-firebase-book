@@ -1114,3 +1114,18 @@ That's it, pipes are really very easy to use, you can discover more pipes on Ang
 
 
 ##Services 
+Services help you avoid repeating your self. Generally, any chunk of code you need to use in more than one component should be a service.  Several components can connect to one service. One component can connect to many services. Below is a before and after picture to demonstrate the importance of services. 
+
+Without services, you'll have to write all your code inside your component.  If you need the same code in another component, you'll have to rewrite it.
+
+![image](https://cloud.githubusercontent.com/assets/1010556/21512514/ae160a96-ccae-11e6-85fa-e55346026075.png)
+
+With services, you just need to write it once as a service and deploy to several components.
+
+![image](https://cloud.githubusercontent.com/assets/1010556/21512600/928f0f92-ccaf-11e6-9198-6146e12dfc78.png)
+
+To create a service, run `ng g s <name of service`. For instance to create `posts-service`, run `ng g s posts`. 
+
+Services are like your models, for those coming from MVC background. As best practice one model should handle everything relating to one table in your database. Sometimes services have nothing to do with any database, they could just be a house for reusable codes.
+For instance, the posts service should handle everything that has to do with creating, deleting, modifying and listing posts. Therefore we should create such methods.
+
