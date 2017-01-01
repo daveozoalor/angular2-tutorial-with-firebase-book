@@ -1245,6 +1245,37 @@ Done, run : ng serve, navigate to your posts-add component and you will see the 
 My complete  `posts-add.component.ts` now looks like this:
 
 ```
+import { Component, OnInit } from '@angular/core';
+import {PostsService} from '../posts.service.ts';
+@Component({
+  selector: 'app-posts-add',
+  templateUrl: './posts-add.component.html',
+  styleUrls: ['./posts-add.component.css']
+  providers : [PostService] 
+})
+
+export class PostsAddComponent implements OnInit {
+
+  postTitle = "The quick brown fox "; //added this
+  postDescription = "Jumps over lorem Ipsum fox mesit"; //added this
+
+  constructor(public ourPostsService : PostsService) {
+
+  //all codes in this constructor() block executes automatically whenever this component is called.
+  	this.ourPostsService.showAnAlertExample();
+  }
+
+  ngOnInit() {
+  }
+
+  addNewPost(){
+    //method to exectute when the submit button is clicked
+  }
+
+}
 
 
 ```
+
+
+## HTTP Service
