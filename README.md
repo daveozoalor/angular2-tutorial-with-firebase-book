@@ -1124,8 +1124,127 @@ With services, you just need to write it once as a service and deploy to several
 
 ![image](https://cloud.githubusercontent.com/assets/1010556/21512600/928f0f92-ccaf-11e6-9198-6146e12dfc78.png)
 
-To create a service, run `ng g s <name of service`. For instance to create `posts-service`, run `ng g s posts`. 
+To create a service, run `ng g s <name of service>`. For instance to create `posts.service.ts`, run `ng g s posts`. This will generate a a file named `posts.service.ts` in `src\app\`.
+![image](https://cloud.githubusercontent.com/assets/1010556/21580707/e36f32ce-d00c-11e6-82e4-5c299651226e.png)
 
-Services are like your models, for those coming from MVC background. As best practice one model should handle everything relating to one table in your database. Sometimes services have nothing to do with any database, they could just be a house for reusable codes.
+ You will see a screen if yours was successful, otherwise restart your command prompt, navigatte to your project folder and run again.
+
+![image](https://cloud.githubusercontent.com/assets/1010556/21580704/8875f6a0-d00c-11e6-9e85-d088aeb8dadf.png)
+
+
+Sometimes, Services are like your models in MVC, for those coming from MVC background. As best practice one model should handle everything relating to one table in your database. Sometimes services have nothing to do with any database, they could just be a house for reusable codes.
 For instance, the posts service should handle everything that has to do with creating, deleting, modifying and listing posts. Therefore we should create such methods.
 
+For example purposes, we will be writing a simple code that says "hello world!" in our `posts.service.ts` . Then we will access that block of code from 2 other components namely `posts-add.component.ts` and `home.component.ts`. These are two components we created in the past.
+
+So, open the new service you created, its located in `src\app\posts.service.ts`. Then add a new method outside the constructor function. The new method we will add will just pop an alert box saying "hello world". The method can be named anything. Below is a sample:
+
+```
+	showAnAlertExample(){
+		alert("Hello World");
+	}
+```
+
+My `src\app\posts.service.ts` now looks like this, after I added the method above. I have added comments where necessary. 
+
+```
+	import { Injectable } from '@angular/core';
+
+	@Injectable()
+	//notice that the exported class here is named 'PostsService' That's what we will need when importing it into any component.
+	
+	export class PostsService {  
+
+	  constructor() { }
+
+
+	//I added the below method
+	  showAnAlertExample(){
+	   alert("Hello World");
+	 }
+
+
+	}
+
+
+```
+
+Now that is sorted, the next thing to do is to import this service into any component where we will need it. Let's import it into `app\posts-add\posts-add.component.ts`. Open the file and write the following import statement at the top of the page. 
+
+```
+import {PostsService} from '../posts.service.ts';
+import { Component, OnInit } from '@angular/core';
+import {PostsService} from '../posts.service.ts';
+@Component({
+  selector: 'app-posts-add',
+  templateUrl: './posts-add.component.html',
+  styleUrls: ['./posts-add.component.css']
+  providers : [PostService] 
+})
+
+export class PostsAddComponent implements OnInit {
+
+  postTitle = "The quick brown fox "; //added this
+  postDescription = "Jumps over lorem Ipsum fox mesit"; //added this
+
+  constructor(public ourPostsService : PostsService) {
+
+  //all codes in this constructor() block executes automatically whenever this component is called.
+  	this.ourPostsService.showAnAlertExample();
+  }
+
+  ngOnInit() {
+  }
+
+  addNewPost(){
+    //method to exectute when the submit button is clicked
+  }
+
+}
+
+```
+
+Then name `PostsService` as a provider in the `@Component` section of the page.
+
+```
+@Component({
+  selector: 'app-posts-add',
+  templateUrl: './posts-add.component.html',
+  styleUrls: ['./posts-add.component.css']
+  providers : [PostService] //I added this line, but you dont have to add this comment to avoid errors.
+})
+
+```
+
+After this, you have to name it as a parameter in the `Constructor()` . You can use any variable to declare it but it must be of the type `PostsService`. I will use the variable `ourPostsService`. 
+
+The constructor now becomes :
+
+```
+  constructor(public ourPostsService : PostsService) { }
+```
+
+Finally, you have to actually call the function. So far what we have done is to propery connect our `posts.service.ts` to the component `post-add.component.ts`. 
+Remember that the function in the service we want to call is named `showAnAlertExample()`. For example purposes, We can call it directly from inside our constructor() method so that once the page loads, the alert will show. 
+Or we can create a new method for it outside of the `constructor()` method in `posts-add.component.ts` so that we can trigger it with a button on the view side `posts.add.component.html` .
+
+Let's take the first option just to demonstrate the point. 
+
+Update the constructor() method of  `posts-add.component.ts` to contain a call to the service.
+
+```
+constructor(public ourPostsService : PostsService) {
+
+//all codes in this constructor() block executes automatically whenever this component is called. 
+	this.ourPostsService.showAnAlertExample();
+}
+```
+
+Done, run : ng serve, navigate to your posts-add component and you will see the pop up. This process is identical for any other component you wish to use the service in. Just import it, name it as a provider, declare it as a parameter in the constructor and then start making calls to it from anywhere in that component.
+
+My complete  `posts-add.component.ts` now looks like this:
+
+```
+
+
+```
