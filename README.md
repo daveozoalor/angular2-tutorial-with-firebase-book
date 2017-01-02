@@ -55,6 +55,8 @@ A BASIC understanding of the following will suffice:
 * Inputs
 * Outputs
 * Lifecycle
+* Pipes
+* Services
 * Templates
 * Events
 * Forms
