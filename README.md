@@ -1281,3 +1281,4 @@ export class PostsAddComponent implements OnInit {
 
 
 ## HTTP Service
+HTTP is the primary protocol for browser/server communication. It helps your app to talk to a remote server. This could be a json file seating right in your project or some remote server like firebase or your website. 
